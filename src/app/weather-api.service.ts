@@ -5,6 +5,7 @@ interface WeatherResponsing {
 
   location: {
     country: string,
+    region: string,
     localtime: string,
     tz_id: string
   }
@@ -21,7 +22,7 @@ export class WeatherApiService {
 
   constructor(private http: HttpClient) { }
 
-  getWeather() {
+  getWeather(location: string) {
     return this.http.get<WeatherResponsing>(`${this.apiUrl}?q=${location}&lang=en`, {
       headers: {
         key: `${this.apiKey}`,

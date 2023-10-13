@@ -1,1 +1,12 @@
-<h1>hallo</h1>
+<label for="name">Name of location: </label>
+<input type="text" (change)="onInput(($any($event).target.value))"/>
+
+<div *ngIf="location">
+<h1>Weather for {{ location }}</h1>
+  <p>Country: {{country}}</p>
+  <p>Region: {{region}}</p>
+  <p>localtime: {{localtime}}</p>
+  <p>tz_id: {{tz_id}}</p>  
+  <!-- Temperature: {{ weatherData.current.temp_c }}°C
+  Condition: {{ weatherData.current.condition.text }} -->
+  </div>
