@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WeatherApiService } from './weather-api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'WeatherApi';
+  headline: string = '';
+  severity: string = '';
+  event: string = '';
+
+  constructor(private weatherApiService: WeatherApiService) {
+    this.weatherApiService.getWeather().subscribe((response) => {
+      console.log('This is the response');
+      console.log(response);
+    });
+  }
 }
